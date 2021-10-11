@@ -130,7 +130,7 @@ const Home: React.FC<RouteComponentProps<HomeProps>> = (props: RouteComponentPro
             {/* Header */}
             <Grid container spacing={1}>
               <Grid item xs={6} >
-                <Typography variant="h3">{'org/' + org.name || <Skeleton sx={{width: 500}}/>}</Typography>
+                <Typography variant="h3">{ org.name ? ('org/' + org.name) : <Skeleton sx={{width: 500}}/>}</Typography>
                 <Button onClick={() => window.open(org.url, '_blank')} variant="text">
                   <Typography>{ org.url ? 'view github' : <Skeleton sx={{width: 300, height:30}} />}</Typography>
                 </Button>
@@ -153,7 +153,7 @@ const Home: React.FC<RouteComponentProps<HomeProps>> = (props: RouteComponentPro
                 }
               </Grid>
             </Grid><hr/>
-            <Typography sx={{ my: 2 }}>Sorted by descending Star Count</Typography>
+            <Typography sx={{ my: 2 }}>{ org.name ? 'Sorted by descending Star Count' : <Skeleton sx={{width: 500}}/>}</Typography>
 
             <Grid container spacing={2}>
               {
