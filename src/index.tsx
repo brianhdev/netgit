@@ -8,7 +8,6 @@ import { ThemeProvider } from '@emotion/react';
 
 import Header from './components/Header';
 import Home from './containers/Home';
-import Repo from './containers/Repo';
 
 import { lightTheme, darkTheme } from './theme';
 import { DARKMODE_LOCAL } from './utils/config';
@@ -47,15 +46,6 @@ const App: React.FC<{}> = () => {
       <Container maxWidth="lg">
         <CssBaseline />
         <Switch>
-          {/* Show Repository Info and Commits */}
-          <Route
-            path="/repo/:id"
-            render={(props) => (<Repo {...props} />)}
-          />
-          {/* Redirect home */}
-          <Route path="/repo">
-            <Redirect to="/netflix" />
-          </Route>
           {/* View Org Repos */}
           <Route
             path="/org/:orgname"

@@ -126,8 +126,16 @@ const Home: React.FC<RouteComponentProps<HomeProps>> = (props: RouteComponentPro
               closeCommits={() => toggleCommits(false)}
               commits={commitData}
             />
+
+            {/* Header */}
             <Grid container spacing={1}>
-              <Grid item xs={5} sm={2}>
+              <Grid item xs={6} >
+                <Typography variant="h3">{'org/' + org.name || <Skeleton sx={{width: 500}}/>}</Typography>
+                <Button onClick={() => window.open(org.url, '_blank')} variant="text">
+                  <Typography>{ org.url ? 'view github' : <Skeleton sx={{width: 300, height:30}} />}</Typography>
+                </Button>
+              </Grid>
+              <Grid item xs={6}  >
                 {
                   org.img ?
                   <img
@@ -141,18 +149,17 @@ const Home: React.FC<RouteComponentProps<HomeProps>> = (props: RouteComponentPro
                       marginRight: '20px'
                     }}
                   /> :
-                  <Skeleton variant="rectangular" sx={{height:100}}/>
+                  <Skeleton variant="rectangular" sx={{height:100, width: 100, float: 'right'}}/>
                 }
               </Grid>
-              <Grid item xs={7} sm={10}>
-                <Typography variant="h3">{org.name || <Skeleton sx={{width: 500}}/>}</Typography>
-                <Button onClick={() => window.open(org.url, '_blank')} variant="text">
-                  <Typography>{ org.url ? 'view github' : <Skeleton sx={{width: 300, height:30}} />}</Typography>
-                </Button>
-              </Grid>
             </Grid><hr/>
+            <Typography sx={{ my: 2 }}>Sorted by descending Star Count</Typography>
 
             <Grid container spacing={2}>
+              {
+                !org.img &&
+                <Skeleton variant="rectangular" sx={{mt: 2, height:'50vh', width: '100%'}}/>
+              }
               { repos.map((repo: any) => (
                 <RepoCard
                   key={'key-'+repo.name}

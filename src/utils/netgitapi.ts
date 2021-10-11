@@ -1,11 +1,11 @@
 /**
  * Various API helper methods that help to
- * - fetch and cache various API requests in session data
+ * - fetch and cache various API responses in session data
  * - properly format return data to be easily parsed
  *
  * Unfortunately due to time restrictions, I wasn't able to improve upon this further.
  * Future improvements might be:
- * - auto-cleaning old, cached requests to prevent sessionStorage from being filled up with so many requests
+ * - auto-cleaning old, cached raw response data to prevent sessionStorage from being filled up with so many
  * - storing already-formatted data instead of the raw response data, lessens the size of each storage key-value pair
  */
 

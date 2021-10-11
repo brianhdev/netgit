@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
                   alt="innit"
                 />
               </Button>
-              { screenLarge && `"Your Favorite Company's Git At A Glance"`}
+              { screenLarge && `"Your Favorite Company's GitHub At A Glance"`}
             </Typography>
           </Box>
           <Tooltip title="Toggle Dark/Light Mode" placement="top">

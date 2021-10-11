@@ -110,7 +110,8 @@ const CommitDrawer: React.FC<CommitDrawerProps> = (props: CommitDrawerProps) => 
                         variant="subtitle2"
                         color="text.primary"
                       >
-                        by <b>{commit.username}</b> at&nbsp;
+                        {commit.username ? (<b>by {commit.username}&nbsp;</b> ) : 'Created '}
+                        at&nbsp;
                         {new Date(commit.dateCreated).toLocaleDateString()}, {new Date(commit.dateCreated).toLocaleTimeString()}
                       </Typography><br/>
                       <Typography

@@ -35,20 +35,21 @@ const RepoCard: React.FC<RepoCardProps> = (props: RepoCardProps) => {
       <Card elevation={0}>
         <CardActionArea sx={{ p: 1 }} onClick={() => props.openCommits()}>
           <CardContent sx={{ height: 250, maxHeight: 250 }}>
-            {/* Title and Date*/}
+
+            {/* Title and Date */}
             <Typography sx={{ fontSize: props.name.length > 15 ? 30 : 35 }}>{props.name}</Typography>
             <Typography sx={{ p:0, mb: 1, color: grey[500], fontSize: 13 }}><i>
               {new Date(props.dateCreated).toLocaleDateString()} - {new Date(props.dateCreated).toLocaleTimeString()}
             </i></Typography>
 
             {/* Badges */}
-            <Tooltip title={`Starred ${props.starCount} times.`} placement="top">
+            <Tooltip title={`Starred ${props.starCount} time(s)`} placement="top">
               <Chip icon={<StarIcon />} label={props.starCount} color="primary" variant="outlined" sx={{ fontWeight: 'bold' }} />
             </Tooltip>&nbsp;
-            <Tooltip title={`Forked ${props.forkCount} times.`} placement="top">
+            <Tooltip title={`Forked ${props.forkCount} time(s)`} placement="top">
               <Chip icon={<CallSplitIcon />} label={props.forkCount} color="primary" variant="outlined" sx={{ fontWeight: 'bold' }} />
             </Tooltip>&nbsp;
-            <Tooltip title={`Primary: ${props.lang}`} placement="top">
+            <Tooltip title={ props.lang ? `Primary written with ${props.lang}` : 'Unable to get primary language' } placement="top">
               <Chip icon={<CodeIcon />} label={props.lang} color="primary" variant="outlined" sx={{ fontWeight: 'bold' }} />
             </Tooltip><hr />
 
